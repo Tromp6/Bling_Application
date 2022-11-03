@@ -4,8 +4,9 @@ import '../../domain/repositories/age_guess_result.dart';
 import '../datasources/remote_age_guess_data_source.dart';
 
 class AgeGuessRepositoryImpl implements AgeGuessRepository {
-  final RemoteAgeGuessDataSource remoteAgeGuessDataSource =
-      RemoteAgeGuessDataSource();
+  AgeGuessRepositoryImpl({required this.remoteAgeGuessDataSource});
+
+  final RemoteAgeGuessDataSource remoteAgeGuessDataSource;
   @override
   Future<AgeGuessResult> fetchAgeGuess(String name) async {
     try {

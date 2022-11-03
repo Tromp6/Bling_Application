@@ -3,6 +3,7 @@ import 'package:bling/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../core/injection.dart';
 import '../../data/repositories/age_guess_repository_impl.dart';
 import '../../domain/usecases/age_guess.dart';
 import '../bloc/age_guess_bloc.dart';
@@ -15,8 +16,7 @@ class AgeGuesserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) =>
-          AgeGuessBloc(getAgeGuess: AgeGuess(AgeGuessRepositoryImpl())), //TODO
+      create: (_) => sl<AgeGuessBloc>(),
       child: const AgeGuesserView(),
     );
   }
@@ -58,9 +58,7 @@ class AgeGuesserView extends StatelessWidget {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            const AgeGuessForm()
-          ],
+          children: [const AgeGuessForm()],
         ));
   }
 }

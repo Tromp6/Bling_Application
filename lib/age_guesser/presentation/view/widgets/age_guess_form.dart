@@ -23,10 +23,10 @@ class _AgeGuessFormState extends State<AgeGuessForm> {
       children: <Widget>[
         TextField(
           controller: controller,
-          keyboardType: TextInputType.number,
+          keyboardType: TextInputType.text,
           decoration: const InputDecoration(
             border: OutlineInputBorder(),
-            hintText: 'Input a number',
+            hintText: 'Type in a name',
           ),
           onChanged: (value) {
             inputStr = value;

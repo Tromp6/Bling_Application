@@ -5,7 +5,10 @@ import 'package:http/http.dart' as http;
 import '../../../core/exceptions.dart';
 import '../models/age_guess_model.dart';
 
-class RemoteAgeGuessDataSource {
+abstract class RemoteAgeGuessDataSource{
+  Future<AgeGuessModel> fetch(String name);
+}
+class RemoteAgeGuessDataSourceImpl extends RemoteAgeGuessDataSource {
   final String uri = "https://api.agify.io/?name=";
   Future<AgeGuessModel> fetch(String name) async {
     final response = await http.get(Uri.parse(uri + name));
