@@ -1,5 +1,6 @@
+import 'package:bling/age_guesser/domain/repositories/age_guess_result.dart';
 
+// ignore: one_member_abstracts
 abstract class AgeGuessRepository {
-  Future<dynamic> fetchAgeGuess(String name);
+  Future<AgeGuessResult> fetchAgeGuess(String name);
 }
-
