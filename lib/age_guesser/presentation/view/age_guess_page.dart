@@ -1,3 +1,4 @@
+import 'package:bling/age_guesser/presentation/view/widgets/age_guess_form.dart';
 import 'package:bling/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,19 +59,7 @@ class AgeGuesserView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            FloatingActionButton(
-              onPressed: () => BlocProvider.of<AgeGuessBloc>(context)
-                  .add(const AgeGuessEvent.guessAge("max")),
-              child: const Icon(Icons.add),
-            ),
-
-            const SizedBox(height: 8),
-            // Text('What\'s your name?', style: theme.textTheme.headline5),
-          FloatingActionButton(
-              onPressed: () => BlocProvider.of<AgeGuessBloc>(context)
-                  .add(const AgeGuessEvent.reset()),
-              child: const Icon(Icons.add),
-            ),
+            const AgeGuessForm()
           ],
         ));
   }
