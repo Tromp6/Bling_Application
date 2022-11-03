@@ -37,19 +37,19 @@ mixin _$AgeGuessEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Empty value) guessAge,
+    required TResult Function(GuessAge value) guessAge,
     required TResult Function(Data value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Empty value)? guessAge,
+    TResult? Function(GuessAge value)? guessAge,
     TResult? Function(Data value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Empty value)? guessAge,
+    TResult Function(GuessAge value)? guessAge,
     TResult Function(Data value)? reset,
     required TResult orElse(),
   }) =>
@@ -75,18 +75,19 @@ class _$AgeGuessEventCopyWithImpl<$Res, $Val extends AgeGuessEvent>
 }
 
 /// @nodoc
-abstract class _$$EmptyCopyWith<$Res> {
-  factory _$$EmptyCopyWith(_$Empty value, $Res Function(_$Empty) then) =
-      __$$EmptyCopyWithImpl<$Res>;
+abstract class _$$GuessAgeCopyWith<$Res> {
+  factory _$$GuessAgeCopyWith(
+          _$GuessAge value, $Res Function(_$GuessAge) then) =
+      __$$GuessAgeCopyWithImpl<$Res>;
   @useResult
   $Res call({String name});
 }
 
 /// @nodoc
-class __$$EmptyCopyWithImpl<$Res>
-    extends _$AgeGuessEventCopyWithImpl<$Res, _$Empty>
-    implements _$$EmptyCopyWith<$Res> {
-  __$$EmptyCopyWithImpl(_$Empty _value, $Res Function(_$Empty) _then)
+class __$$GuessAgeCopyWithImpl<$Res>
+    extends _$AgeGuessEventCopyWithImpl<$Res, _$GuessAge>
+    implements _$$GuessAgeCopyWith<$Res> {
+  __$$GuessAgeCopyWithImpl(_$GuessAge _value, $Res Function(_$GuessAge) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +95,7 @@ class __$$EmptyCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
   }) {
-    return _then(_$Empty(
+    return _then(_$GuessAge(
       null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -105,8 +106,8 @@ class __$$EmptyCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Empty implements Empty {
-  const _$Empty(this.name);
+class _$GuessAge implements GuessAge {
+  const _$GuessAge(this.name);
 
   @override
   final String name;
@@ -120,7 +121,7 @@ class _$Empty implements Empty {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Empty &&
+            other is _$GuessAge &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -130,8 +131,8 @@ class _$Empty implements Empty {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmptyCopyWith<_$Empty> get copyWith =>
-      __$$EmptyCopyWithImpl<_$Empty>(this, _$identity);
+  _$$GuessAgeCopyWith<_$GuessAge> get copyWith =>
+      __$$GuessAgeCopyWithImpl<_$GuessAge>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -167,7 +168,7 @@ class _$Empty implements Empty {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Empty value) guessAge,
+    required TResult Function(GuessAge value) guessAge,
     required TResult Function(Data value) reset,
   }) {
     return guessAge(this);
@@ -176,7 +177,7 @@ class _$Empty implements Empty {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Empty value)? guessAge,
+    TResult? Function(GuessAge value)? guessAge,
     TResult? Function(Data value)? reset,
   }) {
     return guessAge?.call(this);
@@ -185,7 +186,7 @@ class _$Empty implements Empty {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Empty value)? guessAge,
+    TResult Function(GuessAge value)? guessAge,
     TResult Function(Data value)? reset,
     required TResult orElse(),
   }) {
@@ -196,12 +197,13 @@ class _$Empty implements Empty {
   }
 }
 
-abstract class Empty implements AgeGuessEvent {
-  const factory Empty(final String name) = _$Empty;
+abstract class GuessAge implements AgeGuessEvent {
+  const factory GuessAge(final String name) = _$GuessAge;
 
   String get name;
   @JsonKey(ignore: true)
-  _$$EmptyCopyWith<_$Empty> get copyWith => throw _privateConstructorUsedError;
+  _$$GuessAgeCopyWith<_$GuessAge> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -251,12 +253,12 @@ class _$Data implements Data {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Data &&
-            const DeepCollectionEquality().equals(other.ageGuess, ageGuess));
+            (identical(other.ageGuess, ageGuess) ||
+                other.ageGuess == ageGuess));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(ageGuess));
+  int get hashCode => Object.hash(runtimeType, ageGuess);
 
   @JsonKey(ignore: true)
   @override
@@ -298,7 +300,7 @@ class _$Data implements Data {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Empty value) guessAge,
+    required TResult Function(GuessAge value) guessAge,
     required TResult Function(Data value) reset,
   }) {
     return reset(this);
@@ -307,7 +309,7 @@ class _$Data implements Data {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Empty value)? guessAge,
+    TResult? Function(GuessAge value)? guessAge,
     TResult? Function(Data value)? reset,
   }) {
     return reset?.call(this);
@@ -316,7 +318,7 @@ class _$Data implements Data {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Empty value)? guessAge,
+    TResult Function(GuessAge value)? guessAge,
     TResult Function(Data value)? reset,
     required TResult orElse(),
   }) {

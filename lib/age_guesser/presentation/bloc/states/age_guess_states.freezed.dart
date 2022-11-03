@@ -245,12 +245,12 @@ class _$Data implements Data {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Data &&
-            const DeepCollectionEquality().equals(other.ageGuess, ageGuess));
+            (identical(other.ageGuess, ageGuess) ||
+                other.ageGuess == ageGuess));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(ageGuess));
+  int get hashCode => Object.hash(runtimeType, ageGuess);
 
   @JsonKey(ignore: true)
   @override
