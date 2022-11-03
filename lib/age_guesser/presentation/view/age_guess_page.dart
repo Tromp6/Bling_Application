@@ -66,6 +66,11 @@ class AgeGuesserView extends StatelessWidget {
 
             const SizedBox(height: 8),
             // Text('What\'s your name?', style: theme.textTheme.headline5),
+          FloatingActionButton(
+              onPressed: () => BlocProvider.of<AgeGuessBloc>(context)
+                  .add(const AgeGuessEvent.reset()),
+              child: const Icon(Icons.add),
+            ),
           ],
         ));
   }
