@@ -5,10 +5,11 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:bling/counter/counter.dart';
 import 'package:bling/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import '../../age_guesser/presentation/view/age_guess_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -27,7 +28,7 @@ class App extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const AgeGuesserPage(),
     );
   }
 }

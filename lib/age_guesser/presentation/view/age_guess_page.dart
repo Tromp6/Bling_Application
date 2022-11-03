@@ -40,6 +40,11 @@ class AgeGuesserView extends StatelessWidget {
                 );
               }
             },
+            buildWhen: (previous, current) {
+              return previous != current &&
+                  current is! Error &&
+                  current is! Loading;
+            },
             builder: (context, state) {
               return state.whenOrNull(
                     data: (data) => Text(data.age.toString()),
