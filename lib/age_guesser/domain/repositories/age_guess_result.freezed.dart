@@ -80,6 +80,8 @@ abstract class _$$DataCopyWith<$Res> {
       __$$DataCopyWithImpl<$Res>;
   @useResult
   $Res call({AgeGuessEntity ageGuessEntity});
+
+  $AgeGuessEntityCopyWith<$Res> get ageGuessEntity;
 }
 
 /// @nodoc
@@ -100,6 +102,14 @@ class __$$DataCopyWithImpl<$Res>
           : ageGuessEntity // ignore: cast_nullable_to_non_nullable
               as AgeGuessEntity,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AgeGuessEntityCopyWith<$Res> get ageGuessEntity {
+    return $AgeGuessEntityCopyWith<$Res>(_value.ageGuessEntity, (value) {
+      return _then(_value.copyWith(ageGuessEntity: value));
+    });
   }
 }
 
