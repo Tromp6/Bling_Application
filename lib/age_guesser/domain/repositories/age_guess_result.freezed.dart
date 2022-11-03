@@ -18,19 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AgeGuessResult {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() data,
+    required TResult Function(AgeGuessEntity ageGuessEntity) data,
     required TResult Function(Exception error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? data,
+    TResult? Function(AgeGuessEntity ageGuessEntity)? data,
     TResult? Function(Exception error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? data,
+    TResult Function(AgeGuessEntity ageGuessEntity)? data,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) =>
@@ -78,6 +78,8 @@ class _$AgeGuessResultCopyWithImpl<$Res, $Val extends AgeGuessResult>
 abstract class _$$DataCopyWith<$Res> {
   factory _$$DataCopyWith(_$Data value, $Res Function(_$Data) then) =
       __$$DataCopyWithImpl<$Res>;
+  @useResult
+  $Res call({AgeGuessEntity ageGuessEntity});
 }
 
 /// @nodoc
@@ -86,54 +88,79 @@ class __$$DataCopyWithImpl<$Res>
     implements _$$DataCopyWith<$Res> {
   __$$DataCopyWithImpl(_$Data _value, $Res Function(_$Data) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ageGuessEntity = null,
+  }) {
+    return _then(_$Data(
+      null == ageGuessEntity
+          ? _value.ageGuessEntity
+          : ageGuessEntity // ignore: cast_nullable_to_non_nullable
+              as AgeGuessEntity,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$Data implements Data {
-  const _$Data();
+  const _$Data(this.ageGuessEntity);
+
+  @override
+  final AgeGuessEntity ageGuessEntity;
 
   @override
   String toString() {
-    return 'AgeGuessResult.data()';
+    return 'AgeGuessResult.data(ageGuessEntity: $ageGuessEntity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Data);
+        (other.runtimeType == runtimeType &&
+            other is _$Data &&
+            (identical(other.ageGuessEntity, ageGuessEntity) ||
+                other.ageGuessEntity == ageGuessEntity));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, ageGuessEntity);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DataCopyWith<_$Data> get copyWith =>
+      __$$DataCopyWithImpl<_$Data>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() data,
+    required TResult Function(AgeGuessEntity ageGuessEntity) data,
     required TResult Function(Exception error) error,
   }) {
-    return data();
+    return data(ageGuessEntity);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? data,
+    TResult? Function(AgeGuessEntity ageGuessEntity)? data,
     TResult? Function(Exception error)? error,
   }) {
-    return data?.call();
+    return data?.call(ageGuessEntity);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? data,
+    TResult Function(AgeGuessEntity ageGuessEntity)? data,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
     if (data != null) {
-      return data();
+      return data(ageGuessEntity);
     }
     return orElse();
   }
@@ -171,7 +198,11 @@ class _$Data implements Data {
 }
 
 abstract class Data implements AgeGuessResult {
-  const factory Data() = _$Data;
+  const factory Data(final AgeGuessEntity ageGuessEntity) = _$Data;
+
+  AgeGuessEntity get ageGuessEntity;
+  @JsonKey(ignore: true)
+  _$$DataCopyWith<_$Data> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -236,7 +267,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() data,
+    required TResult Function(AgeGuessEntity ageGuessEntity) data,
     required TResult Function(Exception error) error,
   }) {
     return error(this.error);
@@ -245,7 +276,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? data,
+    TResult? Function(AgeGuessEntity ageGuessEntity)? data,
     TResult? Function(Exception error)? error,
   }) {
     return error?.call(this.error);
@@ -254,7 +285,7 @@ class _$Error implements Error {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? data,
+    TResult Function(AgeGuessEntity ageGuessEntity)? data,
     TResult Function(Exception error)? error,
     required TResult orElse(),
   }) {
