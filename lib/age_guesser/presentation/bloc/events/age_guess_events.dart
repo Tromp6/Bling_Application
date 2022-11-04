@@ -10,5 +10,4 @@ part 'age_guess_events.freezed.dart';
 @freezed
 class AgeGuessEvent with _$AgeGuessEvent {
   const factory AgeGuessEvent.guessAge(String name) = GuessAge;
-  const factory AgeGuessEvent.reset() = Reset;
 }

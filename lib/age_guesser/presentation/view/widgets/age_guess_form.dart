@@ -14,39 +14,42 @@ class AgeGuessForm extends StatefulWidget {
 }
 
 class _AgeGuessFormState extends State<AgeGuessForm> {
-  final controller = TextEditingController();
-  late String inputStr;
-
+  final _controller = TextEditingController();
+  late String _inputStr;
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TextFormField(
-          validator: MultiValidator(
-            [
-              RequiredValidator(errorText: 'Name is required'),
-              MinLengthValidator(
-                2,
-                errorText: 'At least 2 characters required',
+        Form(
+            key: _formKey,
+            child: TextFormField(
+              validator: MultiValidator(
+                [
+                  RequiredValidator(errorText: 'Name is required'),
+                  MinLengthValidator(
+                    2,
+                    errorText: 'At least 2 characters required',
+                  ),
+                  MaxLengthValidator(25,
+                      errorText: 'No more than 25 characters'),
+                ],
               ),
-              MaxLengthValidator(25, errorText: 'No more than 25 characters'),
-            ],
-          ),
-          maxLength: 25,
-          autofillHints: [
-            AutofillHints.givenName,
-          ],
-          autovalidateMode: AutovalidateMode.onUserInteraction,
-          autofocus: true,
-          textCapitalization: TextCapitalization.words,
-          decoration: InputDecoration(hintText: 'Your Name'),
-          onChanged: (value) {
-            inputStr = value;
-          },
-          controller: controller,
-          onEditingComplete: dispatchGuessAge,
-          showCursor: true,
-        ),
+              maxLength: 25,
+              autofillHints: [
+                AutofillHints.givenName,
+              ],
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              autofocus: true,
+              textCapitalization: TextCapitalization.words,
+              decoration: InputDecoration(hintText: 'Your Name'),
+              onChanged: (value) {
+                _inputStr = value;
+              },
+              controller: _controller,
+              onEditingComplete: dispatchGuessAge,
+              showCursor: true,
+            )),
         const SizedBox(height: 10),
         Row(
           children: <Widget>[
@@ -59,13 +62,7 @@ class _AgeGuessFormState extends State<AgeGuessForm> {
                 child: const Text('Get Age Guess'),
               ),
             ),
-            SizedBox(width: 10),
-            Expanded(
-              child: ElevatedButton(
-                child: Text('Reset'),
-                onPressed: dispatchReset,
-              ),
-            ),
+            
           ],
         )
       ],
@@ -73,12 +70,11 @@ class _AgeGuessFormState extends State<AgeGuessForm> {
   }
 
   void dispatchGuessAge() {
-    controller.clear();
-    BlocProvider.of<AgeGuessBloc>(context).add(GuessAge(inputStr));
+    if (_formKey.currentState!.validate()) {
+       _formKey.currentState!.reset();
+    BlocProvider.of<AgeGuessBloc>(context).add(GuessAge(_inputStr));
+    }
   }
 
-  void dispatchReset() {
-    controller.clear();
-    BlocProvider.of<AgeGuessBloc>(context).add(Reset());
-  }
+  
 }
