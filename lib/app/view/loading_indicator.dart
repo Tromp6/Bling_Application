@@ -11,7 +11,7 @@ class LoadingSpinKit extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child:  Center(
         child: SpinKit.SpinKitWave(
-          color: Colors.white,
+          color: Colors.black,
         ),
       ),
     );

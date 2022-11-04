@@ -38,7 +38,7 @@ class AgeGuesserView extends StatelessWidget {
           }
         },
         buildWhen: (previous, current) {
-          return previous != current && current is! Error;
+          return previous != current ;
         },
         builder: (context, state) {
           return Column(
