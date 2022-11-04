@@ -47,16 +47,15 @@ class AgeGuesserView extends StatelessWidget {
         builder: (context, state) {
           return Column(
             mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               state.when(
-                  empty: () => Text("Type in your Name"),
-                  data: ((ageGuess) => Text(ageGuess.age)),
+                  empty: () => SizedBox(),
+                  data: ((ageGuess) => Text(ageGuess.age, style: TextStyle(fontSize: 30 , fontWeight: FontWeight.bold, fontFamily: 'RaleWay'),)),
                   loading: () => LoadingSpinKit(),
                   error: (_) => SizedBox()),
-              SizedBox(height: 250),
+              const SizedBox(height: 300),
               const AgeGuessForm(),
-              SizedBox(height: 50)
+              const SizedBox(height: 50)
             ],
           );
         },
