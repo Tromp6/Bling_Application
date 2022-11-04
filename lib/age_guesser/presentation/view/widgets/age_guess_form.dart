@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:form_field_validator/form_field_validator.dart';
 import '../../bloc/age_guess_bloc.dart';
 import '../../bloc/events/age_guess_events.dart';
 
@@ -21,19 +21,31 @@ class _AgeGuessFormState extends State<AgeGuessForm> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        TextField(
-          controller: controller,
-          keyboardType: TextInputType.text,
-          decoration: const InputDecoration(
-            border: OutlineInputBorder(),
-            hintText: 'Type in a name',
+        TextFormField(
+          validator: MultiValidator(
+            [
+              RequiredValidator(errorText: 'Name is required'),
+              MinLengthValidator(
+                2,
+                errorText: 'At least 2 characters required',
+              ),
+              MaxLengthValidator(25, errorText: 'No more than 25 characters'),
+            ],
           ),
+          maxLength: 25,
+          autofillHints: [
+            AutofillHints.givenName,
+          ],
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          autofocus: true,
+          textCapitalization: TextCapitalization.words,
+          decoration: InputDecoration(hintText: 'Your Name'),
           onChanged: (value) {
             inputStr = value;
           },
-          onSubmitted: (_) {
-            dispatchGuessAge();
-          },
+          controller: controller,
+          onEditingComplete: dispatchGuessAge,
+          showCursor: true,
         ),
         const SizedBox(height: 10),
         Row(

@@ -4,8 +4,6 @@ import '../entities/age_guess_entity.dart';
 
 part 'age_guess_result.freezed.dart';
 
-//welche states gibt es?
-//alter und inital kann da erstmal null nehmen
 
 @freezed
 class AgeGuessResult with _$AgeGuessResult {
