@@ -26,9 +26,11 @@ class _AgeGuessFormState extends State<AgeGuessForm> {
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                
                 validator: MultiValidator(
-                  [
+                  [ 
                     RequiredValidator(errorText: 'Name is required'),
+PatternValidator(r'^[a-zA-Z]+$', errorText: 'Name must be A-Z/ a-z and no whitespaces'),
                     MinLengthValidator(
                       2,
                       errorText: 'At least 2 characters required',
