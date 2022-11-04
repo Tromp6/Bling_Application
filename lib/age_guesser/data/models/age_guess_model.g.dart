@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: unused_element
+
 part of 'age_guess_model.dart';
 
 // **************************************************************************
@@ -12,7 +14,6 @@ AgeGuessModel _$AgeGuessModelFromJson(Map<String, dynamic> json) =>
       age: json['age'] as int,
     );
 
-// ignore: unused_element
 Map<String, dynamic> _$AgeGuessModelToJson(AgeGuessModel instance) =>
     <String, dynamic>{
       'name': instance.name,

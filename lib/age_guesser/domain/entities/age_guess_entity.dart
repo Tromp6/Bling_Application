@@ -11,5 +11,6 @@ part 'age_guess_entity.freezed.dart';
 class AgeGuessEntity with _$AgeGuessEntity {
   const factory AgeGuessEntity({
     required String age,
+    required String name,
   }) = _AgeGuessEntity;
 }

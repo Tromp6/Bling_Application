@@ -16,43 +16,42 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AgeGuessEvent {
+  String get name => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String name) guessAge,
-    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? guessAge,
-    TResult? Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? guessAge,
-    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuessAge value) guessAge,
-    required TResult Function(Reset value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GuessAge value)? guessAge,
-    TResult? Function(Reset value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuessAge value)? guessAge,
-    TResult Function(Reset value)? reset,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $AgeGuessEventCopyWith<AgeGuessEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -61,6 +60,8 @@ abstract class $AgeGuessEventCopyWith<$Res> {
   factory $AgeGuessEventCopyWith(
           AgeGuessEvent value, $Res Function(AgeGuessEvent) then) =
       _$AgeGuessEventCopyWithImpl<$Res, AgeGuessEvent>;
+  @useResult
+  $Res call({String name});
 }
 
 /// @nodoc
@@ -72,13 +73,28 @@ class _$AgeGuessEventCopyWithImpl<$Res, $Val extends AgeGuessEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? name = null,
+  }) {
+    return _then(_value.copyWith(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$GuessAgeCopyWith<$Res> {
+abstract class _$$GuessAgeCopyWith<$Res>
+    implements $AgeGuessEventCopyWith<$Res> {
   factory _$$GuessAgeCopyWith(
           _$GuessAge value, $Res Function(_$GuessAge) then) =
       __$$GuessAgeCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({String name});
 }
@@ -138,7 +154,6 @@ class _$GuessAge implements GuessAge {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String name) guessAge,
-    required TResult Function() reset,
   }) {
     return guessAge(name);
   }
@@ -147,7 +162,6 @@ class _$GuessAge implements GuessAge {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String name)? guessAge,
-    TResult? Function()? reset,
   }) {
     return guessAge?.call(name);
   }
@@ -156,7 +170,6 @@ class _$GuessAge implements GuessAge {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String name)? guessAge,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (guessAge != null) {
@@ -169,7 +182,6 @@ class _$GuessAge implements GuessAge {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(GuessAge value) guessAge,
-    required TResult Function(Reset value) reset,
   }) {
     return guessAge(this);
   }
@@ -178,7 +190,6 @@ class _$GuessAge implements GuessAge {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(GuessAge value)? guessAge,
-    TResult? Function(Reset value)? reset,
   }) {
     return guessAge?.call(this);
   }
@@ -187,7 +198,6 @@ class _$GuessAge implements GuessAge {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GuessAge value)? guessAge,
-    TResult Function(Reset value)? reset,
     required TResult orElse(),
   }) {
     if (guessAge != null) {
@@ -200,108 +210,10 @@ class _$GuessAge implements GuessAge {
 abstract class GuessAge implements AgeGuessEvent {
   const factory GuessAge(final String name) = _$GuessAge;
 
+  @override
   String get name;
+  @override
   @JsonKey(ignore: true)
   _$$GuessAgeCopyWith<_$GuessAge> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$ResetCopyWith<$Res> {
-  factory _$$ResetCopyWith(_$Reset value, $Res Function(_$Reset) then) =
-      __$$ResetCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ResetCopyWithImpl<$Res>
-    extends _$AgeGuessEventCopyWithImpl<$Res, _$Reset>
-    implements _$$ResetCopyWith<$Res> {
-  __$$ResetCopyWithImpl(_$Reset _value, $Res Function(_$Reset) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$Reset implements Reset {
-  const _$Reset();
-
-  @override
-  String toString() {
-    return 'AgeGuessEvent.reset()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$Reset);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String name) guessAge,
-    required TResult Function() reset,
-  }) {
-    return reset();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String name)? guessAge,
-    TResult? Function()? reset,
-  }) {
-    return reset?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String name)? guessAge,
-    TResult Function()? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(GuessAge value) guessAge,
-    required TResult Function(Reset value) reset,
-  }) {
-    return reset(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(GuessAge value)? guessAge,
-    TResult? Function(Reset value)? reset,
-  }) {
-    return reset?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(GuessAge value)? guessAge,
-    TResult Function(Reset value)? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class Reset implements AgeGuessEvent {
-  const factory Reset() = _$Reset;
 }

@@ -13,7 +13,8 @@ class AgeGuessRepositoryImpl implements AgeGuessRepository {
       final result = await remoteAgeGuessDataSource
           .fetch(name)
           .timeout(const Duration(seconds: 4));
-      return AgeGuessResult.data(AgeGuessEntity(age: result.age.toString()));
+      return AgeGuessResult.data(
+          AgeGuessEntity(age: result.age.toString(), name: result.name),);
     } catch (e) {
       return AgeGuessResult.error(e as Exception);
     }

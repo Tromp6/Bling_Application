@@ -15,7 +15,8 @@ void main() async {
       act: (bloc) => bloc.add(const GuessAge('max')),
       skip: 1,
       wait: const Duration(seconds: 3),
-      expect: () => [AgeGuessState.data(AgeGuessEntity(age: 51.toString()))],
+      expect: () =>
+          [AgeGuessState.data(AgeGuessEntity(name: 'max', age: 51.toString()))],
     );
     blocTest<AgeGuessBloc, AgeGuessState>(
       'emits loading state when age is being guessed',

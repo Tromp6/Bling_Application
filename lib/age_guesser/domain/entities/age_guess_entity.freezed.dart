@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AgeGuessEntity {
   String get age => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AgeGuessEntityCopyWith<AgeGuessEntity> get copyWith =>
@@ -29,7 +30,7 @@ abstract class $AgeGuessEntityCopyWith<$Res> {
           AgeGuessEntity value, $Res Function(AgeGuessEntity) then) =
       _$AgeGuessEntityCopyWithImpl<$Res, AgeGuessEntity>;
   @useResult
-  $Res call({String age});
+  $Res call({String age, String name});
 }
 
 /// @nodoc
@@ -46,11 +47,16 @@ class _$AgeGuessEntityCopyWithImpl<$Res, $Val extends AgeGuessEntity>
   @override
   $Res call({
     Object? age = null,
+    Object? name = null,
   }) {
     return _then(_value.copyWith(
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -64,7 +70,7 @@ abstract class _$$_AgeGuessEntityCopyWith<$Res>
       __$$_AgeGuessEntityCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String age});
+  $Res call({String age, String name});
 }
 
 /// @nodoc
@@ -79,11 +85,16 @@ class __$$_AgeGuessEntityCopyWithImpl<$Res>
   @override
   $Res call({
     Object? age = null,
+    Object? name = null,
   }) {
     return _then(_$_AgeGuessEntity(
       age: null == age
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -94,14 +105,16 @@ class __$$_AgeGuessEntityCopyWithImpl<$Res>
 class _$_AgeGuessEntity
     with DiagnosticableTreeMixin
     implements _AgeGuessEntity {
-  const _$_AgeGuessEntity({required this.age});
+  const _$_AgeGuessEntity({required this.age, required this.name});
 
   @override
   final String age;
+  @override
+  final String name;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AgeGuessEntity(age: $age)';
+    return 'AgeGuessEntity(age: $age, name: $name)';
   }
 
   @override
@@ -109,7 +122,8 @@ class _$_AgeGuessEntity
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AgeGuessEntity'))
-      ..add(DiagnosticsProperty('age', age));
+      ..add(DiagnosticsProperty('age', age))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -117,11 +131,12 @@ class _$_AgeGuessEntity
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_AgeGuessEntity &&
-            (identical(other.age, age) || other.age == age));
+            (identical(other.age, age) || other.age == age) &&
+            (identical(other.name, name) || other.name == name));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, age);
+  int get hashCode => Object.hash(runtimeType, age, name);
 
   @JsonKey(ignore: true)
   @override
@@ -131,11 +146,14 @@ class _$_AgeGuessEntity
 }
 
 abstract class _AgeGuessEntity implements AgeGuessEntity {
-  const factory _AgeGuessEntity({required final String age}) =
-      _$_AgeGuessEntity;
+  const factory _AgeGuessEntity(
+      {required final String age,
+      required final String name}) = _$_AgeGuessEntity;
 
   @override
   String get age;
+  @override
+  String get name;
   @override
   @JsonKey(ignore: true)
   _$$_AgeGuessEntityCopyWith<_$_AgeGuessEntity> get copyWith =>

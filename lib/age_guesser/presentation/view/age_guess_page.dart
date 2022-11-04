@@ -38,7 +38,7 @@ class AgeGuesserView extends StatelessWidget {
           }
         },
         buildWhen: (previous, current) {
-          return previous != current ;
+          return previous != current;
         },
         builder: (context, state) {
           return Column(
@@ -47,7 +47,7 @@ class AgeGuesserView extends StatelessWidget {
               state.when(
                 empty: SizedBox.new,
                 data: (ageGuess) => Text(
-                  ageGuess.age,
+                  '${ageGuess.name} is probably ${ageGuess.age}',
                   style: const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
