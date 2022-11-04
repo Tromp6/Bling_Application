@@ -10,7 +10,9 @@ class AgeGuessRepositoryImpl implements AgeGuessRepository {
   @override
   Future<AgeGuessResult> fetchAgeGuess(String name) async {
     try {
-      final result = await remoteAgeGuessDataSource.fetch(name);
+      final result = await remoteAgeGuessDataSource
+          .fetch(name)
+          .timeout(const Duration(seconds: 4));
       return AgeGuessResult.data(AgeGuessEntity(age: result.age.toString()));
     } catch (e) {
       return AgeGuessResult.error(e as Exception);

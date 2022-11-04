@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bling/age_guesser/domain/usecases/age_guess.dart';
 import 'package:bling/age_guesser/presentation/bloc/events/age_guess_events.dart';
 import 'package:bling/age_guesser/presentation/bloc/states/age_guess_states.dart';
@@ -28,6 +30,8 @@ class AgeGuessBloc extends Bloc<AgeGuessEvent, AgeGuessState> {
     switch (failure.runtimeType) {
       case ServerException:
         return 'Server Error';
+      case TimeoutException:
+        return 'Something took too long';
       default:
         return 'Unexpected error';
     }
