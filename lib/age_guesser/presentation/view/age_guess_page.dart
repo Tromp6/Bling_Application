@@ -3,7 +3,6 @@ import 'package:bling/age_guesser/presentation/bloc/states/age_guess_states.dart
 import 'package:bling/age_guesser/presentation/view/widgets/age_guess_form.dart';
 import 'package:bling/app/view/loading_indicator.dart';
 import 'package:bling/core/injection.dart';
-import 'package:bling/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,9 +23,8 @@ class AgeGuesserView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = context.l10n;
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.counterAppBarTitle)),
+      appBar: AppBar(title: const Text('Age Guesser')),
       body: BlocConsumer<AgeGuessBloc, AgeGuessState>(
         listener: (context, state) {
           if (state is Error) {
