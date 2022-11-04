@@ -1,15 +1,11 @@
+import 'package:bling/age_guesser/presentation/bloc/age_guess_bloc.dart';
+import 'package:bling/age_guesser/presentation/bloc/states/age_guess_states.dart';
 import 'package:bling/age_guesser/presentation/view/widgets/age_guess_form.dart';
+import 'package:bling/app/view/loading_indicator.dart';
+import 'package:bling/core/injection.dart';
 import 'package:bling/l10n/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../app/view/loading_indicator.dart';
-import '../../../core/injection.dart';
-import '../../data/repositories/age_guess_repository_impl.dart';
-import '../../domain/usecases/age_guess.dart';
-import '../bloc/age_guess_bloc.dart';
-import '../bloc/events/age_guess_events.dart';
-import '../bloc/states/age_guess_states.dart';
 
 class AgeGuesserPage extends StatelessWidget {
   const AgeGuesserPage({super.key});
@@ -17,7 +13,7 @@ class AgeGuesserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => sl<AgeGuessBloc>(),
+      create: (_) => getIt<AgeGuessBloc>(),
       child: const AgeGuesserView(),
     );
   }
@@ -49,10 +45,18 @@ class AgeGuesserView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               state.when(
-                  empty: () => SizedBox(),
-                  data: ((ageGuess) => Text(ageGuess.age, style: TextStyle(fontSize: 30 , fontWeight: FontWeight.bold, fontFamily: 'RaleWay'),)),
-                  loading: () => LoadingSpinKit(),
-                  error: (_) => SizedBox()),
+                empty: SizedBox.new,
+                data: (ageGuess) => Text(
+                  ageGuess.age,
+                  style: const TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'RaleWay',
+                  ),
+                ),
+                loading: LoadingSpinKit.new,
+                error: (_) => const SizedBox(),
+              ),
               const SizedBox(height: 300),
               const AgeGuessForm(),
               const SizedBox(height: 50)

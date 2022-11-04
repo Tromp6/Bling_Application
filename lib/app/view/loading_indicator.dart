@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
+// ignore: library_prefixes
 import 'package:flutter_spinkit/flutter_spinkit.dart' as SpinKit;
 
 class LoadingSpinKit extends StatelessWidget {
-  const LoadingSpinKit({Key? key});
+  const LoadingSpinKit({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Directionality(
+    return const Directionality(
       textDirection: TextDirection.ltr,
-      child: Container(
-        child: Center(
-          child: SpinKit.SpinKitWave(
-            color: Colors.white,
-            size: 50.0,
-          ),
+      child:  Center(
+        child: SpinKit.SpinKitWave(
+          color: Colors.white,
         ),
       ),
     );

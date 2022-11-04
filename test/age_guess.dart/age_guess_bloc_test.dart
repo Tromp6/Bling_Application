@@ -11,17 +11,17 @@ void main() async {
   group('AgeGuessBloc', () {
     blocTest<AgeGuessBloc, AgeGuessState>(
       'emits age 51 when max is passed',
-      build: () => di.sl<AgeGuessBloc>() as AgeGuessBloc,
-      act: (bloc) => bloc.add(GuessAge('max')),
+      build: di.getIt,
+      act: (bloc) => bloc.add(const GuessAge('max')),
       skip: 1,
       wait: const Duration(seconds: 3),
       expect: () => [AgeGuessState.data(AgeGuessEntity(age: 51.toString()))],
     );
-   blocTest<AgeGuessBloc, AgeGuessState>(
+    blocTest<AgeGuessBloc, AgeGuessState>(
       'emits loading state when age is being guessed',
-      build: () => di.sl<AgeGuessBloc>() as AgeGuessBloc,
-      act: (bloc) => bloc.add(GuessAge('max')),
-      expect: () => [AgeGuessState.loading()],
+      build: di.getIt,
+      act: (bloc) => bloc.add(const GuessAge('max')),
+      expect: () => [const AgeGuessState.loading()],
     );
   });
 }

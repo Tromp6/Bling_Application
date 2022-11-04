@@ -1,6 +1,5 @@
+import 'package:bling/age_guesser/domain/entities/age_guess_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../entities/age_guess_entity.dart';
 
 part 'age_guess_result.freezed.dart';
 

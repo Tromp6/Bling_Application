@@ -12,6 +12,7 @@ AgeGuessModel _$AgeGuessModelFromJson(Map<String, dynamic> json) =>
       age: json['age'] as int,
     );
 
+// ignore: unused_element
 Map<String, dynamic> _$AgeGuessModelToJson(AgeGuessModel instance) =>
     <String, dynamic>{
       'name': instance.name,

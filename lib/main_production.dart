@@ -7,12 +7,11 @@
 
 import 'package:bling/app/app.dart';
 import 'package:bling/bootstrap.dart';
+import 'package:bling/core/injection.dart' as di;
 import 'package:flutter/material.dart';
-
-import 'core/injection.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  bootstrap(() => const App());
+  await bootstrap(() => const App());
 }

@@ -1,7 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../domain/entities/age_guess_entity.dart';
-
 part 'age_guess_events.freezed.dart';
 
 //welche states gibt es?

@@ -1,9 +1,8 @@
+import 'package:bling/age_guesser/domain/usecases/age_guess.dart';
+import 'package:bling/age_guesser/presentation/bloc/events/age_guess_events.dart';
 import 'package:bling/age_guesser/presentation/bloc/states/age_guess_states.dart';
+import 'package:bling/core/exceptions.dart';
 import 'package:bloc/bloc.dart';
-
-import '../../../core/exceptions.dart';
-import '../../domain/usecases/age_guess.dart';
-import 'events/age_guess_events.dart';
 
 class AgeGuessBloc extends Bloc<AgeGuessEvent, AgeGuessState> {
   AgeGuessBloc({

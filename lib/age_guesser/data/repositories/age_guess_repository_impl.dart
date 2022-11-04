@@ -1,7 +1,7 @@
-import '../../domain/entities/age_guess_entity.dart';
-import '../../domain/repositories/age_guess_repository.dart';
-import '../../domain/repositories/age_guess_result.dart';
-import '../datasources/remote_age_guess_data_source.dart';
+import 'package:bling/age_guesser/data/datasources/remote_age_guess_data_source.dart';
+import 'package:bling/age_guesser/domain/entities/age_guess_entity.dart';
+import 'package:bling/age_guesser/domain/repositories/age_guess_repository.dart';
+import 'package:bling/age_guesser/domain/repositories/age_guess_result.dart';
 
 class AgeGuessRepositoryImpl implements AgeGuessRepository {
   AgeGuessRepositoryImpl({required this.remoteAgeGuessDataSource});
